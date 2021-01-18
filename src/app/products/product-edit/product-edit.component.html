@@ -1,0 +1,48 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+<div class="wizard">
+  <a [routerLink]="['info']" routerLinkActive="hover-blue" >Info</a>
+  <a [routerLink]="['tags']" routerLinkActive="hover-blue" >Tags</a>
+</div>
+
+ <div>
+  <router-outlet></router-outlet>
+ </div>
+
+  <div class="card-body"
+       *ngIf="product">
+       <div class="form-group row mb-2">
+        <div class="col-md-4">
+          <button class="btn btn-primary mr-3"
+                  style="width:80px"
+                  type="button"
+                  [title]="productForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!productForm.valid"
+                  (click)="saveProduct()">
+            Save
+          </button>
+          <button class="btn btn-outline-secondary mr-3"
+                  style="width:80px"
+                  type="button"
+                  title="Cancel your edits"
+                  routerLink="/Home">
+            Cancel
+          </button>
+          <button class="btn btn-outline-warning"
+                  style="width:80px"
+                  type="button"
+                  title="Delete this product"
+                  (click)="deleteProduct()">
+            Delete
+          </button>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class="alert alert-danger"
+     *ngIf="errorMessage">{{errorMessage}}
+</div>
