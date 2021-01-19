@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService } from './auth.service';
+import { USerService } from './USer.service';
 
 @Component({
   selector:'ddd',
@@ -12,7 +13,7 @@ export class LoginComponent {
   errorMessage: string;
   pageTitle = 'Log In';
 
-  constructor(private authService: AuthService,private router:Router) { }
+  constructor(private authService: AuthService,private router:Router,private dd:USerService) { }
 
   login(loginForm: NgForm): void {
     if (loginForm && loginForm.valid) {
